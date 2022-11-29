@@ -1,0 +1,47 @@
+import Link from "next/link";
+import React from "react";
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <nav className="flex flex-wrap gap-2 justify-between px-10 py-4">
+        <div>
+          <span className="">
+            <Link href={"/"}>MoviesDuniya</Link>
+          </span>
+        </div>
+        <div className="flex flex-row gap-2 flex-wrap">
+          <Link href={"/search/"}>Search</Link>
+          <Link href={"/history/"}>History</Link>
+        </div>
+      </nav>
+      <main className="dark:bg-gray-800 min-h-screen">{children}</main>
+      <footer className="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          © 2022{" "}
+          <a href="/" className="hover:underline">
+            Movies Duniya
+          </a>
+          . All Rights Reserved.
+        </span>
+        <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+            <a href="#" className="mr-4 hover:underline md:mr-6 ">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#" className="mr-4 hover:underline md:mr-6">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:underline">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </>
+  );
+}
