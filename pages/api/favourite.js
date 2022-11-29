@@ -1,13 +1,15 @@
 import nextConnect from "next-connect";
 import middleware from "../../middlewares/middleware";
 import mongodb, { ObjectId } from "mongodb";
+import requestIp from 'request-ip';
 
 const handler = nextConnect();
 
 handler.use(middleware);
+handler.use(requestIp.mw())
 
 const deleteFav = async (req) => {
-  const ip = "192.168.0.1";
+  const ip = req.clientIp;
   const movieId = req.body.movie_id;
   return await req.db
     .collection("favourites")
