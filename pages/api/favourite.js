@@ -22,7 +22,7 @@ const deleteFav = async (req) => {
 
 const addFavourite = async (req) => {
   try {
-    const ip = req.socket.localAddress;
+    const ip = req.socket.remoteAddress;
     const movieId = req.body.movie_id;
     const data = await req.db.collection("favourites").findOne({
       user_ip: ip,

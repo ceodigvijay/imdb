@@ -8,7 +8,7 @@ handler.use(middleware);
 
 
 const getByID = async (req) => {
-    const ip = req.socket.localAddress;
+    const ip = req.socket.remoteAddress;
     const { query: { id } } = req;
     const query = { _id: new ObjectId(id) }
     const favData = await req.db.collection("favourites").findOne({
